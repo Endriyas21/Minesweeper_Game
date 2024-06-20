@@ -35,6 +35,11 @@ class Cell:
 
     @staticmethod
     def randomize_mines():
-        picked_cells = random.sample(Cell.all, settings.MINES_COUNT)
+        picked_cells = random.sample(
+            Cell.all, settings.MINES_COUNT
+        )
         for picked_cell in picked_cells:
             picked_cell.is_mine = True
+
+    def __repr__(self):
+        return f"Cell({self.x}, {self.y})"
